@@ -2,6 +2,7 @@ package top.misec.utils;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.apache.commons.codec.binary.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.config.RequestConfig;
@@ -14,10 +15,12 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
+import org.apache.logging.log4j.core.util.JsonUtils;
 import top.misec.login.Verify;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @author cmcc
@@ -97,13 +100,15 @@ public class HttpUtil {
             logger.error(e);
             e.printStackTrace();
         } catch (Exception e) {
-            logger.error(e);
+            logger.debug(e);
             e.printStackTrace();
         } finally {
             // 关闭资源
             httpResource(httpClient, httpPostResponse);
         }
-        logger.debug("请求 post url={},para:{},result={}",url,requestBody,resultJson.toString());
+        if(Objects.nonNull(resultJson)) {
+            logger.debug("请求 post url={},para:{},result={}", url, requestBody, resultJson);
+        }
         logger.debug("请求 token:{}",verify.getVerify());
         return resultJson;
     }
@@ -146,7 +151,9 @@ public class HttpUtil {
             // 关闭资源
             httpResource(httpClient, httpGetResponse);
         }
-        logger.debug("请求 get url={},result={}",url,resultJson.toString());
+        if(Objects.nonNull(resultJson)) {
+            logger.debug("请求 get url={},result={}", url, resultJson.toString());
+        }
         logger.debug("请求 token:{}",verify.getVerify());
         return resultJson;
 
