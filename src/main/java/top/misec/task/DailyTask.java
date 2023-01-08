@@ -444,6 +444,7 @@ public class DailyTask {
 
     public void userCheck() {
         JsonObject userJson = HttpUtil.doGet(ApiList.LOGIN);
+        logger.info("用户登录检测结果:{}",userJson.toString());
         //判断Cookies是否有效
         if (userJson.get(statusCodeStr).getAsInt() == 0
                 && userJson.get("data").getAsJsonObject().get("isLogin").getAsBoolean()) {
