@@ -38,7 +38,8 @@ jobs:
           DEDEUSERID: ${{ secrets.DEDEUSERID }}
           SESSDATA: ${{ secrets.SESSDATA }}
           SERVERPUSHKEY: ${{ secrets.SERVERPUSHKEY }}
+          BUVID3: ${{ secrets.BUVID3 }}
           TZ: Asia/Shanghai
           # 时区配置为Asia/Shanghai
         run:
-          mvn compile exec:java -Dexec.mainClass="top.misec.BiliMain" -Dexec.args="${DEDEUSERID} ${SESSDATA} ${BILI_JCT} ${SERVERPUSHKEY}"
+          mvn compile exec:java -Dexec.mainClass="top.misec.BiliMain" -Dexec.args="${DEDEUSERID} ${SESSDATA} ${BILI_JCT} ${BUVID3} ${SERVERPUSHKEY}"
