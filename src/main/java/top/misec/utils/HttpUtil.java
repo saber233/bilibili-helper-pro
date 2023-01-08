@@ -17,6 +17,7 @@ import org.apache.logging.log4j.core.Logger;
 import top.misec.login.Verify;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * @author cmcc
@@ -96,11 +97,14 @@ public class HttpUtil {
             logger.error(e);
             e.printStackTrace();
         } catch (Exception e) {
+            logger.error(e);
             e.printStackTrace();
         } finally {
             // 关闭资源
             httpResource(httpClient, httpPostResponse);
         }
+        logger.debug("请求 post url={},para:{},result={}",url,requestBody,resultJson.toString());
+        logger.debug("请求 token:{}",verify.getVerify());
         return resultJson;
     }
 
@@ -136,11 +140,14 @@ public class HttpUtil {
             }
 
         } catch (Exception e) {
+            logger.debug("get 请求失败e,{}",e);
             e.printStackTrace();
         } finally {
             // 关闭资源
             httpResource(httpClient, httpGetResponse);
         }
+        logger.debug("请求 get url={},result={}",url,resultJson.toString());
+        logger.debug("请求 token:{}",verify.getVerify());
         return resultJson;
 
     }
