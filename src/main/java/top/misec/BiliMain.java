@@ -17,7 +17,7 @@ public class BiliMain {
 
     public static void main(String[] args) {
 
-        if (args.length < 3) {
+        if (args.length < 4) {
             logger.info("任务启动失败");
             logger.warn("Cookies参数缺失，请检查是否在Github Secrets中配置Cookies参数");
         }
