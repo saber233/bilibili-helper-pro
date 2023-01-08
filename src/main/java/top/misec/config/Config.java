@@ -43,6 +43,11 @@ public class Config {
      */
     private String devicePlatform;
 
+    /**
+     * 是否执行跟踪
+     */
+    private boolean traceHttp;
+
     public String getDevicePlatform() {
         return devicePlatform;
     }
@@ -78,6 +83,13 @@ public class Config {
         return numberOfCoins;
     }
 
+    public boolean isTraceHttp() {
+        return traceHttp;
+    }
+
+    public void setTraceHttp(boolean traceHttp) {
+        this.traceHttp = traceHttp;
+    }
 
     @Override
     public String toString() {
@@ -86,6 +98,7 @@ public class Config {
                 ", selectLike=" + selectLike +
                 ", watchAndShare=" + watchAndShare +
                 ", monthEndAutoCharge=" + monthEndAutoCharge +
+                ", traceHttp=" + traceHttp +
                 ", devicePlatform='" + devicePlatform + '\'' +
                 '}';
     }

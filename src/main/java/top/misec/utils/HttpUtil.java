@@ -16,6 +16,7 @@ import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.apache.logging.log4j.core.util.JsonUtils;
+import top.misec.config.Config;
 import top.misec.login.Verify;
 
 import java.io.IOException;
@@ -106,10 +107,10 @@ public class HttpUtil {
             // 关闭资源
             httpResource(httpClient, httpPostResponse);
         }
-        if(Objects.nonNull(resultJson)) {
+        if(Config.getInstance().isTraceHttp()&Objects.nonNull(resultJson)) {
             logger.debug("请求 post url={},para:{},result={}", url, requestBody, resultJson);
+            logger.debug("请求 token:{}",verify.getVerify());
         }
-        logger.debug("请求 token:{}",verify.getVerify());
         return resultJson;
     }
 
@@ -151,10 +152,10 @@ public class HttpUtil {
             // 关闭资源
             httpResource(httpClient, httpGetResponse);
         }
-        if(Objects.nonNull(resultJson)) {
+        if(Config.getInstance().isTraceHttp()&Objects.nonNull(resultJson)) {
             logger.debug("请求 get url={},result={}", url, resultJson.toString());
+            logger.debug("请求 token:{}",verify.getVerify());
         }
-        logger.debug("请求 token:{}",verify.getVerify());
         return resultJson;
 
     }
