@@ -457,8 +457,6 @@ public class DailyTask {
             doServerPush();
         }
 
-        Config.getInstance().configInit();
-
         String uname = userInfo.getUname();
         //用户名模糊处理 @happy88888
         int s1 = uname.length() / 2, s2 = (s1 + 1) / 2;
