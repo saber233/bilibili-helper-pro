@@ -109,7 +109,6 @@ public class HttpUtil {
         }
         if(Config.getInstance().isTraceHttp()&Objects.nonNull(resultJson)) {
             logger.debug("请求 post url={},para:{},result={}", url, requestBody, resultJson);
-            logger.debug("请求 token:{}",verify.getVerify());
         }
         return resultJson;
     }
@@ -154,7 +153,6 @@ public class HttpUtil {
         }
         if(Config.getInstance().isTraceHttp()&Objects.nonNull(resultJson)) {
             logger.debug("请求 get url={},result={}", url, resultJson.toString());
-            logger.debug("请求 token:{}",verify.getVerify());
         }
         return resultJson;
 
