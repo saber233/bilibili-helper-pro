@@ -481,7 +481,8 @@ public class DailyTask {
         userCheck();//检查登录是否有效
         videoWatch();//观看视频 默认会调用分享
         doMangaSign();//漫画签到
-        silver2coin();//银瓜子换硬币
+        //TODO fix
+//        silver2coin();//银瓜子换硬币
         doCoinAdd();//投币任务
         doLiveCheckin(); //直播签到
         doCharge();

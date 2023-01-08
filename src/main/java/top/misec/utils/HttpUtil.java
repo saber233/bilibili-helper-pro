@@ -141,7 +141,6 @@ public class HttpUtil {
             // 关闭资源
             httpResource(httpClient, httpGetResponse);
         }
-        logger.debug("get 请求:{},result:{}",url,resultJson.toString());
         return resultJson;
 
     }

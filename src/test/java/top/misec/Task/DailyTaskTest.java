@@ -15,7 +15,7 @@ public class DailyTaskTest {
 
     @Test
     public static void main(String[] args) {
-        Verify.verifyInit(args[0], args[1], args[2]);
-        ServerVerify.verifyInit(args[3]);
+        Verify.verifyInit(args[0], args[1], args[2],args[3]);
+        ServerVerify.verifyInit(args[4]);
     }
 }
